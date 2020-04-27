@@ -5,5 +5,6 @@ module.exports = {
       required: true
     },
     password : { type: 'string', required: true},
+    role: { type: 'string', defaultsTo: 'user' }
   },
 };
