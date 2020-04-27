@@ -1,0 +1,20 @@
+<%- include('../part/header') %>
+    <div class="container pt-5">
+        <h3>Users</h3>
+        <table class="w-100">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach((user) => {%>
+                <%- include('../part/user',  { user }) %>
+            <% });%>
+        </tbody>
+        </table>
+        <%- include('../part/addUser') %>
+    </div>    
+<%- include('../part/footer') %>
