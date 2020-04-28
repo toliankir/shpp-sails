@@ -25,6 +25,7 @@ module.exports.routes = {
   'GET /user/disable/:id': { action: 'user/disable' },
   'GET /user/delete/:id': { action: 'user/delete' },
   'POST /user': { action: 'user/create' },
+  'POST /user/login': { action: 'user/login' },
 
   'GET /post': { view: 'pages/posts' },
 

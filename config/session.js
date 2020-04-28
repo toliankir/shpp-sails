@@ -10,7 +10,7 @@
  */
 
 module.exports.session = {
-
+  
   /***************************************************************************
   *                                                                          *
   * Session secret is automatically generated when your new app is created   *
@@ -19,8 +19,12 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
   secret: 'ff3c6ab0abc866e820dc1afc9c4f53d9',
-
-
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+  },
+  adapter: 'connect-mongo',
+  url: 'mongodb://localhost:27017/sails',
+  collection: 'sessions',
   /***************************************************************************
   *                                                                          *
   * Customize when built-in session support will be skipped.                 *

@@ -19,10 +19,9 @@ module.exports = {
 
   fn: async function (inputs) {
     const users = await sails.models.user.find({});
-    const test = await sails.models.user.find({}).populate('posts');
-    console.log(test[0]);
+    // const test = await sails.models.user.find({}).populate('posts');
+    console.log(this.req.session);
     return this.res.view('pages/users', { users });
-
   }
 
 

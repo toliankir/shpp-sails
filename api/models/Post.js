@@ -16,6 +16,10 @@ module.exports = {
       type: 'string',
       required: true,
     },
+    published: {
+      type: 'boolean',
+      defaultsTo: false,
+    },
     owner: {
       model: 'user',
     },
