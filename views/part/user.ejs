@@ -8,4 +8,12 @@
     <td>
         <%= user.id%>
     </td>
+    <td>
+        <% if (user.active) { %>
+            <a href="./user/disable/<%= user.id %>" class="btn btn-sm btn-warning text-white">Disable</a>
+        <% } else { %>
+            <a href="./user/enable/<%= user.id %>" class="btn btn-sm btn-success text-white">Enable</a>
+        <% } %>
+        <a href="./user/delete/<%= user.id %>" class="btn btn-sm btn-danger text-white">Delete</a>
+    </td>
 </tr>

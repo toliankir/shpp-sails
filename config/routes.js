@@ -21,7 +21,12 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'GET /user': { action: 'user/get-all' },
+  'GET /user/enable/:id': { action: 'user/enable' },
+  'GET /user/disable/:id': { action: 'user/disable' },
+  'GET /user/delete/:id': { action: 'user/delete' },
   'POST /user': { action: 'user/create' },
+
+  'GET /post': { view: 'pages/posts' },
 
   /***************************************************************************
   *                                                                          *
