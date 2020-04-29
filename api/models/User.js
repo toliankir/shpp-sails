@@ -10,7 +10,8 @@ module.exports = {
   attributes: {
     login: {
       type: 'string',
-      required: true
+      required: true,
+      unique: true,
     },
     password : { type: 'string', required: true},
     active: {type: 'boolean', defaultsTo: false},
@@ -19,6 +20,10 @@ module.exports = {
       collection: 'post',
       via: 'owner',
     }
+  },
+  beforeCreate: function (valueToSet, proceed) {
+    valueToSet.password = valueToSet.password + 'add';
+    proceed();
   },
 
 };

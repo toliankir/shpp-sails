@@ -28,9 +28,12 @@ module.exports = {
   fn: async function (inputs) {
 
     // All done.
-    await sails.models.user.create(inputs);
+    try {
+      await sails.models.user.create(inputs);
+    } catch (error) {
+      return this.res.view('error/error', { error : error.message });
+    }
     return this.res.redirect('/user');
-
   }
 
 
