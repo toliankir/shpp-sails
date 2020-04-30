@@ -16,10 +16,6 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    owner: {
-      type: 'string',
-      required: true,
-    },
   },
 
 
@@ -29,7 +25,9 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    await sails.models.post.create(inputs);
+    const { title, body } = inputs;
+    const { id: owner} = this.req.session.user;
+    await sails.models.post.create({ title, body, owner });
     return this.res.redirect('/post');
   }
 

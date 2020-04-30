@@ -22,7 +22,7 @@
     if (this.req.session.user) {
       delete this.req.session.user;
     }
-    return;
+    return this.res.redirect('/user');
 
   }
 

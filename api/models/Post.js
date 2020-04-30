@@ -16,7 +16,7 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    published: {
+    active: {
       type: 'boolean',
       defaultsTo: false,
     },

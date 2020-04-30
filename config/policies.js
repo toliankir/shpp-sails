@@ -17,6 +17,19 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
-
+  // '*': false,
+  'user/show-all': ['isLogged', 'isAdmin'],
+  'user/enable': 'isAdmin',
+  'user/disable': 'isAdmin',
+  'user/delete': 'isAdmin',
+  'user/create': true,
+  'user/show-signup': true,
+  'user/show-login': true,
+  'user/login': true,
+  'user/logout': 'isLogged',
+  'post/show-all': 'isLogged',
+  'post/create': 'isLogged',
+  'post/unpublish': 'isAdmin',
+  'post/publish': 'isAdmin',
+  'post/delete': 'isAdmin',
 };

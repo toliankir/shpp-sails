@@ -1,0 +1,17 @@
+<%- include('../part/header') %>
+<%- include('../part/navbar') %>
+    <div class="container pt-5">
+        <h3>Edit post</h3>
+        <form action="./post/update" method="POST">
+            <div>
+                title
+                <input class="form-control" type="text" value="<%= post.title %>" name="title">
+                body
+                <textarea class="form-control" name="body"><%= post.body %></textarea>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>    
+        </form>
+    </div>    
+<%- include('../part/footer') %>

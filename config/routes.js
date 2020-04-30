@@ -20,15 +20,23 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'GET /user': { action: 'user/get-all' },
+  'GET /user': { action: 'user/show-all' },
   'GET /user/enable/:id': { action: 'user/enable' },
   'GET /user/disable/:id': { action: 'user/disable' },
   'GET /user/delete/:id': { action: 'user/delete' },
   'POST /user': { action: 'user/create' },
+  'GET /user/signup': {action: 'user/show-signup'},
+  'GET /user/login': { action: 'user/show-login' },
   'POST /user/login': { action: 'user/login' },
   'GET /user/logout': { action: 'user/logout' },
 
-  'GET /post': { view: 'pages/posts' },
+  'GET /post': { action: 'post/show-all' },
+  'POST /post': {action: 'post/create'},
+  'GET /post/edit/:id': {action: 'post/show-edit'},
+  'POST /post/update': {action: 'post/update'},
+  'GET /post/unpublish/:id': { action: 'post/unpublish' },
+  'GET /post/publish/:id': { action: 'post/publish' },
+  'GET /post/delete/:id': { action: 'post/delete' },
 
   /***************************************************************************
   *                                                                          *

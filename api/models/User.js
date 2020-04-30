@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 /**
  * User.js
  *
@@ -21,8 +22,8 @@ module.exports = {
       via: 'owner',
     }
   },
-  beforeCreate: function (valueToSet, proceed) {
-    valueToSet.password = valueToSet.password + 'add';
+  beforeCreate: async function (valueToSet, proceed) {
+    valueToSet.password = crypto.createHmac('sha256', 'salt').update(valueToSet.password).digest('hex');
     proceed();
   },
 
