@@ -18,11 +18,8 @@ module.exports = {
 
 
   fn: async function (inputs) {
-
-    // All done.
-    await sails.models.post.updateOne({ id: this.req.param('id')}).set({active: false});
+    await Post.updateOne({ id: this.req.param('id')}).set({active: false});
     return this.res.redirect('/post');
-
   }
 
 

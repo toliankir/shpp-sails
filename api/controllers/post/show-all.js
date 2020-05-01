@@ -21,12 +21,12 @@ module.exports = {
     const { user } = this.req.session;
     let posts = [];
     if (user.role === 'admin') {
-      posts = await sails.models.post.find({});
+      posts = await Post.find({});
     } else {
       const { id } = user;
-      posts = (await sails.models.user.findOne({id}).populate('posts')).posts;
+      posts = (await User.findOne({id}).populate('posts')).posts;
     }
-    return this.res.view('pages/posts', { user, posts });
+    return this.res.view('pages/post/posts', { user, posts });
   }
 
 

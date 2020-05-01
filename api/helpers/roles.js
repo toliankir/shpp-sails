@@ -22,7 +22,7 @@ module.exports = {
 
 
   fn: async function () {
-    return ['users', 'admins'];
+    return ['user', 'admin'];
   }
 
 

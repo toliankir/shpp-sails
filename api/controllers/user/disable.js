@@ -8,7 +8,10 @@ module.exports = {
 
 
   inputs: {
-
+    id: {
+      type: 'string',
+      required: true,
+    },
   },
 
 
@@ -18,8 +21,12 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    await sails.models.user.updateOne({ id: this.req.param('id') }).set({active: false });
-    return this.res.redirect('/user');
+    try {
+      await User.updateOne({ id: this.req.param('id') }).set({active: false });
+    } catch (error) {
+      return this.res.view('error/error', { error : error.message });
+    }
+    return this.res.redirect('/user'); 
   }
 
 

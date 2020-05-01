@@ -15,16 +15,21 @@ module.exports.bootstrap = async function() {
   //
   // For example:
   // ```
-  // // Set up fake development data (or if we already have some, avast)
-  // if (await User.count() > 0) {
-  //   return;
-  // }
-  //
-  // await User.createEach([
-  //   { emailAddress: 'ry@example.com', fullName: 'Ryan Dahl', },
-  //   { emailAddress: 'rachael@example.com', fullName: 'Rachael Shaw', },
-  //   // etc.
-  // ]);
-  // ```
+  // Set up fake development data (or if we already have some, avast)
+  if (await User.count() === 0) {
+    await User.createEach([
+      { login: 'admin@gmail.com', password: '1', active: true, role: 'admin' },
+      { login: 'user@gmail.com', password: '1', active: true, role: 'user' },
+    ]);
+  }
+
+  if (await Post.count() === 0) {
+    const adminId = (await User.findOne({ login: 'admin@gmail.com'})).id;
+    const userId = (await User.findOne({ login: 'user@gmail.com'})).id;
+    await Post.createEach([
+      { title: 'Admin post title', body: 'Admin post.', owner: adminId },
+      { title: 'User post title', body: 'User post.', owner: userId },
+    ]);
+  }
 
 };

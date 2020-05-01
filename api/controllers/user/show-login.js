@@ -18,10 +18,8 @@ module.exports = {
 
 
   fn: async function (inputs) {
-
     const { user } = this.req.session;
-    return this.res.view('pages/login', { user });
-
+    return this.res.view('pages/user/login', { user });
   }
 
 

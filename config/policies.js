@@ -22,6 +22,7 @@ module.exports.policies = {
   'user/enable': 'isAdmin',
   'user/disable': 'isAdmin',
   'user/delete': 'isAdmin',
+  'user/set-role': 'isAdmin',
   'user/create': true,
   'user/show-signup': true,
   'user/show-login': true,
@@ -29,7 +30,9 @@ module.exports.policies = {
   'user/logout': 'isLogged',
   'post/show-all': 'isLogged',
   'post/create': 'isLogged',
+  'post/delete': 'isLogged',
+  'post/show-edit': 'isLogged',
+  'post/update': 'isLogged',
   'post/unpublish': 'isAdmin',
   'post/publish': 'isAdmin',
-  'post/delete': 'isAdmin',
 };

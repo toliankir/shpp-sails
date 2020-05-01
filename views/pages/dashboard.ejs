@@ -1,0 +1,21 @@
+<%- include('../part/header') %>
+<%- include('../part/navbar') %>
+    <div class="container pt-5">
+        <h3>Dashboard</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Users in database</th>
+                    <th>Posts in database</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= usersCount %></td>
+                    <td><%= postsCount %></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>    
+<%- include('../part/footer') %>

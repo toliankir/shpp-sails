@@ -1,9 +1,11 @@
-<%- include('../part/header') %>
-<%- include('../part/navbar') %>
+<%- include('../../part/header') %>
+<%- include('../../part/navbar') %>
     <div class="container pt-5">
         <h3>Edit post</h3>
-        <form action="./post/update" method="POST">
+        <form action="/post/update" method="POST">
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
             <div>
+                <input type="hidden" name="id" value="<%= post.id %>">
                 title
                 <input class="form-control" type="text" value="<%= post.title %>" name="title">
                 body
@@ -14,4 +16,4 @@
             </div>    
         </form>
     </div>    
-<%- include('../part/footer') %>
+<%- include('../../part/footer') %>

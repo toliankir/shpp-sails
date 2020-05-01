@@ -24,10 +24,9 @@ module.exports = {
   },
 
 
-  fn: async function (inputs) {
-    const { title, body } = inputs;
+  fn: async function ({ title, body }) {
     const { id: owner} = this.req.session.user;
-    await sails.models.post.create({ title, body, owner });
+    await Post.create({ title, body, owner });
     return this.res.redirect('/post');
   }
 

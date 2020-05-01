@@ -13,16 +13,21 @@ module.exports = {
 
 
   exits: {
-
+    forbidden: {
+      description: 'You are not owner of this post, only admins can delete any post.',
+      responseType: 'forbidden',
+    }
   },
 
 
   fn: async function (inputs) {
-
-    // All done.
-    await sails.models.post.destroyOne({ id: this.req.param('id') });
+    const { user } = this.req.session;
+    const post = await Post.findOne({ id: this.req.param('id') });
+    if (post.owner !== user.id) {
+      throw 'forbidden';
+    }
+    await Post.destroyOne({ id: this.req.param('id') });
     return this.res.redirect('/post');
-
   }
 
 

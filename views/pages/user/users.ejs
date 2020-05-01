@@ -1,5 +1,5 @@
-<%- include('../part/header') %>
-<%- include('../part/navbar') %>
+<%- include('../../part/header') %>
+<%- include('../../part/navbar') %>
     <div class="container pt-5">
         <h3>Users</h3>
         <table class="w-100 table table-striped">
@@ -18,10 +18,23 @@
                         <%= user.login%>
                     </td>
                     <td>
-                        <%= user.role%>
+                        <form method="POST" action="/user/role" class="d-flex">
+                            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                            <input type="hidden" name="id" value="<%= user.id %>">
+                            <select name="role" class="form-control" >
+                                <% roles.forEach((role, roleIndex) => { %> 
+                                <option <% if (roleIndex === roles.indexOf(user.role)) { %>
+                                        selected
+                                    <% } %> value="<%= role %>">
+                                    <%= role %>
+                                </option>    
+                                <% }) %>
+                            </select>
+                            <button class="btn btn-success" type="submit">Set</button>
+                        </form>
                     </td>
                     <td>
-                        <%= user.id%>
+                        <small><%= user.id%></small>
                     </td>
                     <td class="text-right">
                         <% if (user.active) { %>
@@ -36,4 +49,4 @@
         </tbody>
         </table>
     </div>    
-<%- include('../part/footer') %>
+<%- include('../../part/footer') %>

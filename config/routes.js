@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': { action: 'dashboard/show' },
   'GET /user': { action: 'user/show-all' },
   'GET /user/enable/:id': { action: 'user/enable' },
   'GET /user/disable/:id': { action: 'user/disable' },
@@ -28,6 +28,7 @@ module.exports.routes = {
   'GET /user/signup': {action: 'user/show-signup'},
   'GET /user/login': { action: 'user/show-login' },
   'POST /user/login': { action: 'user/login' },
+  'POST /user/role': { action: 'user/set-role' },
   'GET /user/logout': { action: 'user/logout' },
 
   'GET /post': { action: 'post/show-all' },

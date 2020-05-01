@@ -1,3 +1,5 @@
 module.exports = {
-  salt: 'test',
+  custom: {
+    salt: 'test',
+  },
 };
