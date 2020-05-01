@@ -25,6 +25,7 @@ module.exports.session = {
   adapter: 'connect-mongo',
   url: 'mongodb://localhost:27017/sails',
   collection: 'sessions',
+
   /***************************************************************************
   *                                                                          *
   * Customize when built-in session support will be skipped.                 *

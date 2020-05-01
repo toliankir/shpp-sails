@@ -39,7 +39,9 @@ module.exports = {
     if (!user.active) {
       return this.res.view('error/error', { error : `User ${login} must be activated.` });
     }
-    const hashPassword = crypto.createHmac('sha256', 'salt').update(password).digest('hex');
+    const hashPassword = crypto.createHmac('sha256', sails.config.salt)
+      .update(password)
+      .digest('hex');
     if (user.password !== hashPassword) {
       return this.res.view('error/error', { error : `Wrong password or wrong login '${login}'.` });
     }

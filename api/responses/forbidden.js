@@ -1,3 +1,4 @@
 module.exports = function (data) {
-  return this.res.status(403).view('error/error', { error : 'Forbidden' });
+  const { user } = this.req.session;
+  return this.res.status(403).view('error/error', { error : 'Forbidden' , user });
 };

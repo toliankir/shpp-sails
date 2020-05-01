@@ -250,10 +250,9 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    // 'https://localgost',
+    onlyAllowOrigins: ['https://localhost',
     //   'https://staging.example.com',
-    // ],
+    ],
 
 
     /***************************************************************************
@@ -391,6 +390,5 @@ module.exports = {
 
   },
 
-
-
+  salt: 'salt',
 };

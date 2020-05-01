@@ -23,7 +23,9 @@ module.exports = {
     }
   },
   beforeCreate: async function (valueToSet, proceed) {
-    valueToSet.password = crypto.createHmac('sha256', 'salt').update(valueToSet.password).digest('hex');
+    valueToSet.password = crypto.createHmac('sha256', sails.config.salt)
+      .update(valueToSet.password)
+      .digest('hex');
     proceed();
   },
 
