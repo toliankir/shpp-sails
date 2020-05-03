@@ -2,3 +2,4 @@
     "watch": ["config", "api", "tasks", "assets"],
     "exec": "sails lift"
 }
+
